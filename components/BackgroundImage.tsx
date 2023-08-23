@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 
 type Props = {
-    transitionData: any;
-    currentSlideData: any;
+    transitionData: Data;
+    currentSlideData: CurrentSlideData;
 };
 
 function BackgroundImage({ transitionData, currentSlideData }: Props) {
@@ -11,25 +11,23 @@ function BackgroundImage({ transitionData, currentSlideData }: Props) {
         <>
             {transitionData && (
                 <motion.img
-                    key={transitionData.images[0]}
-                    layoutId={transitionData.images[0]}
+                    layout
                     alt="Transition Image"
                     transition={{
                         opacity: { ease: "linear" },
                         layout: { duration: 0.5 },
                     }}
                     className="absolute left-0 top-0 z-10 h-full w-full object-cover brightness-50"
-                    src={transitionData?.images[0]}
+                    src={transitionData.images[0]}
                 />
             )}
-            {currentSlideData.data && (
-                <motion.img
-                    alt="Current Image"
-                    key={currentSlideData.data.images[0] + "transition"}
-                    src={currentSlideData.data.images[0]}
-                    className="absolute left-0 top-0 h-full w-full object-cover brightness-50"
-                />
-            )}
+            <motion.img
+                layout
+                alt="Current Image"
+                key={currentSlideData.data.name + "transition"}
+                src={currentSlideData.data.images[0]}
+                className="absolute left-0 top-0 h-full w-full object-cover brightness-50"
+            />
         </>
     );
 }

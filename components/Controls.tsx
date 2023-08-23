@@ -3,14 +3,16 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Progress from "./Progress";
 
 type Props = {
-    currentSlideData: any;
-    sliderData: any;
-    data: any;
-    transitionData: any;
-    handleData: React.Dispatch<React.SetStateAction<any>>;
-    handleTransitionData: React.Dispatch<React.SetStateAction<any>>;
-    handleCurrentSlideData: React.Dispatch<React.SetStateAction<any>>;
-    initData: any;
+    currentSlideData: CurrentSlideData;
+    sliderData: Data[];
+    data: Data[];
+    transitionData: Data;
+    handleData: React.Dispatch<React.SetStateAction<Data[]>>;
+    handleTransitionData: React.Dispatch<React.SetStateAction<Data>>;
+    handleCurrentSlideData: React.Dispatch<
+        React.SetStateAction<CurrentSlideData>
+    >;
+    initData: Data;
 };
 
 function Controls({
@@ -24,30 +26,28 @@ function Controls({
     initData,
 }: Props) {
     const handlePrev = () => {
-        handleData((prevData: any) => [
+        handleData((prevData) => [
             transitionData ? transitionData : initData,
             ...prevData.slice(0, prevData.length - 1),
         ]);
         handleCurrentSlideData({
             data: transitionData ? transitionData : sliderData[0],
             index: sliderData.findIndex(
-                (ele: any) => ele.images[0] === data[data.length - 1].images[0]
+                (ele) => ele.name === data[data.length - 1].name
             ),
         });
         handleTransitionData(data[data.length - 1]);
     };
 
     const handleNext = () => {
-        handleData((prev: any) => prev.slice(1));
+        handleData((prev) => prev.slice(1));
         handleCurrentSlideData({
             data: transitionData ? transitionData : initData,
-            index: sliderData.findIndex(
-                (ele: any) => ele.images[0] === data[0].images[0]
-            ),
+            index: sliderData.findIndex((ele) => ele.name === data[0].name),
         });
         handleTransitionData(data[0]);
         setTimeout(() => {
-            handleData((newData: any) => [
+            handleData((newData) => [
                 ...newData,
                 transitionData ? transitionData : initData,
             ]);

@@ -2,13 +2,13 @@ import React from "react";
 import SliderCard from "./SliderCard";
 
 type Props = {
-    data: any;
+    data: Data[];
 };
 
 function Slides({ data }: Props) {
     return (
-        <div className="flex w-full gap-6">
-            {data.map((data: any, index: number) => {
+        <div className=" flex w-full gap-6">
+            {data.map((data, index: number) => {
                 return <SliderCard key={index} data={data} />;
             })}
         </div>

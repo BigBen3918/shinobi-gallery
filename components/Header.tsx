@@ -9,11 +9,11 @@ function Header() {
     return (
         <div className=" absolute mt-5 flex w-full flex-wrap items-center justify-between gap-2 px-5 text-xs font-medium uppercase opacity-90 md:px-10">
             <Head>
-                <title>Dark Shinobi Gallery</title>
+                <title>Naruto Gallery</title>
             </Head>
             <div className="  flex items-center gap-2 font-medium tracking-[4px]">
                 <IoIosGlobe className=" text-xl" />
-                Dark World
+                World Shinobi
             </div>
             {/* <ul className=" flex flex-wrap items-center gap-3 text-[11px] md:gap-10">
                 {menus.map((menu, index) => {

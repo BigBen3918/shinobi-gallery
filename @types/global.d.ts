@@ -1,8 +1,9 @@
 declare type Data = {
-    img: string;
-    title: string;
-    description: string;
-    location: string;
+    about: string[];
+    info: any;
+    page: string;
+    name: string;
+    images: string[];
 };
 
 declare type CurrentSlideData = {

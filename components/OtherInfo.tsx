@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 type Props = {
     data: any;
 };
+
 const item = {
     hidden: {
         y: "100%",
@@ -18,21 +19,22 @@ const item = {
 function OtherInfo({ data }: Props) {
     return (
         <motion.div
+            layoutId={data?.name}
             initial="hidden"
             animate={"visible"}
             className=" flex flex-col"
         >
+            {/* <AnimatedText
+                className="spacing overflow-hidden text-[#D5D5D6]"
+                data={data?.name}
+            /> */}
             <AnimatedText
-                className=" spacing overflow-hidden text-[#D5D5D6]"
-                data={data?.personal?.affiliation}
-            />
-            <AnimatedText
-                className=" my-1 text-4xl font-semibold md:my-3 md:text-8xl md:leading-[100px]"
+                className="my-1 text-4xl font-semibold md:my-3 md:text-7xl md:leading-[100px]"
                 data={data?.name}
             />
             <AnimatedText
-                className=" text-xs text-[#D5D5D6]"
-                data={data?.personal?.status && "unKnown"}
+                className="text-xs text-[#D5D5D6]"
+                data={data?.about[0]}
             />
         </motion.div>
     );

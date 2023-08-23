@@ -26,6 +26,7 @@ function Progress({ curIndex, length }: Props) {
                 }}
             >
                 <motion.div
+                    layout
                     initial={{
                         opacity: 0,
                     }}
@@ -37,7 +38,7 @@ function Progress({ curIndex, length }: Props) {
                         duration: 0.6,
                         ease: "easeInOut",
                     }}
-                    className=" flex items-center text-4xl font-medium "
+                    className="flex items-center text-4xl font-medium "
                 >
                     0{curIndex + 1}
                 </motion.div>
