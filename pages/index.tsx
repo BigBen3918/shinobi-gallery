@@ -8,7 +8,8 @@ import Slides from "@/components/Slides";
 import SlideInfo from "@/components/SlideInfo";
 import Controls from "@/components/Controls";
 
-import { sliderData } from "./data";
+// Json Data from:: https://naruto-api.fly.dev/
+import sliderData from "./data.json";
 
 const inter = Righteous({
     subsets: ["latin"],
