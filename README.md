@@ -1,3 +1,3 @@
 # Shinobi Gallery 🚀
 
-You can browse characters of Naruto History.
+You able to enjoy characters of Naruto story
